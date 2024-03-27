@@ -18,8 +18,6 @@
 後臺![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/c7035f82-f6c4-4eb6-8681-8b364f7b18f9)
 
 apifox接口：
-[Uploading video_website.html…]()
-
-[Uploading video_website_admin.html…]()
+https://apifox.com/apidoc/shared-0c37c8c7-1bd0-44d3-b890-30ac850811f9
 
 
