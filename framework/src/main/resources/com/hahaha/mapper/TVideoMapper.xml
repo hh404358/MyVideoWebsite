@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hahaha.mapper.TVideoMapper">
+
+    <!-- 查询出推荐视频，不含自己的视频，按预测值由高到底排序 -->
+    <select id="selectRecommendVideo" resultType="com.hahaha.entity.TVideo">
+        SELECT t1.*
+        from t_video as t1
+                 inner join (select video_id
+                             from t_predict
+                             where user_id = #{userId}
+                               and video_id not in (select video_id from t_video where create_user = #{userId})
+                             order by pre_star desc LIMIT 0 , #{pageSize}) as t2 on t1.video_id = t2.video_id;
+    </select>
+
+    <select id="getStateList" resultType="com.hahaha.entity.TState">
+        select state_id stateId,state_name stateName from t_state where state_id in (4,5)
+    </select>
+
+    <!--    获取top前3的视频-->
+    <select id="getIndexRecommendVideo" resultType="com.hahaha.entity.TVideo">
+        SELECT a.* FROM t_video a,t_predict b WHERE a.video_state_id =4 and a.video_id = b.video_id ORDER BY b.pre_star LIMIT 3
+    </select>
+
+    <!--    最近日期的前五个视频-->
+    <select id="getIndexLastVideo" resultType="com.hahaha.entity.TVideo">
+        select * from t_video where video_state_id = 4 order by create_time desc limit 5
+    </select>
+
+
+
+</mapper>

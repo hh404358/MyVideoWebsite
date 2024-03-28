@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hahaha.mapper.TFocusMapper">
+
+    <select id="getTFocus" resultType="com.hahaha.entity.vo.UserInfoVo">
+
+        SELECT * FROM sys_user m
+        LEFT JOIN t_focus ON m.id = t_focus.focused_id
+        WHERE t_focus.user_id = #{id};
+
+    </select>
+
+    <select id="getFan" resultType="com.hahaha.entity.vo.UserInfoVo">
+
+        SELECT * FROM sys_user m
+        LEFT JOIN t_focus ON m.id = t_focus.user_id
+        WHERE t_focus.focused_id = #{id};
+
+    </select>
+
+    <select id="getFriends" resultType="com.hahaha.entity.vo.UserInfoVo">
+
+        SELECT u.* FROM sys_user u
+                            INNER JOIN t_focus f1 ON u.id = f1.user_id
+                            INNER JOIN t_focus f2 ON u.id = f2.focused_id
+        WHERE f1.focused_id = f2.user_id
+          AND u.id != #{id};
+
+    </select>
+
+    <delete id="cancelfocus">
+        delete from t_focus
+        where user_id = #{userId} AND focused_id = #{focusId}
+    </delete>
+
+
+
+
+</mapper>

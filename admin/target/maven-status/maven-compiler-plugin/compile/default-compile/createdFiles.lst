@@ -1,0 +1,9 @@
+com\hahaha\controller\UserController.class
+com\hahaha\controller\LoginController.class
+com\hahaha\AdminApplication.class
+com\hahaha\config\SecurityConfig.class
+com\hahaha\controller\MenuController.class
+com\hahaha\controller\TypeController.class
+com\hahaha\filter\JwtAuthenticationTokenFilter.class
+com\hahaha\controller\AdminVideoController.class
+com\hahaha\controller\RoleController.class
