@@ -2,6 +2,6 @@
 aliyun:
   oss:
     endpoint: https://oss-cn-hangzhou.aliyuncs.com
-    accessKeyId: LTAI5t7JWg4s7KQfxuUbB6K3
-    accessKeySecret: OsphqyELBFoTFEUYGeuiK1Hzi3rAR0
+    accessKeyId: 
+    accessKeySecret: 
     bucketName: web-management-hahaha
