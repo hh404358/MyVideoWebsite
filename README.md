@@ -11,6 +11,7 @@
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/82fcd7f0-b042-47de-a1f0-678446fd490e)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/e57fa690-de64-4df4-9e48-9fd4c8221716)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/d7eb2407-a790-4dc9-b3e7-4c7c1aec45d7)
+![Uploading image.png…]()
 
 個人中心![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/cc6e319a-4e77-4c9e-8cb1-07935966f591)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/36e2e83f-3877-495d-94f8-8a6aede8e61e)
@@ -26,9 +27,9 @@
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/db6aebed-26d0-408b-97e9-1bf1845be0ae)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/fc14f1f4-0ebc-4970-ac53-b07e6073b4f8)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/edb880e0-328b-4b11-8da7-a66c4559acdc)
-![Uploading image.png…]()
+![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/cc466bd4-c96b-4be7-90f2-5be78701ff7d)
 
-![Uploading image.png…]()
+![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/8fc2641b-a71f-433d-8b85-92a6e7ea4630)
 
 
 apifox接口：
