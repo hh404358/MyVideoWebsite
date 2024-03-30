@@ -1,11 +1,11 @@
 # MyVideoWebsite
-前臺：視頻彈幕網站+后台管理系統
+视频弹幕网站+后台管理系統
 前端技术：vue+vuex+nginx
 后端技术：springboot+springsecurity+mybatisplus
 部署情況：
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/edba1aad-758e-4c11-b8f2-0e15660af16a)
-效果展示圖：
-前臺![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/143d4685-48ad-478b-9c6e-a1f82eedf725)
+效果展示图：
+前台![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/143d4685-48ad-478b-9c6e-a1f82eedf725)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/8c3c730d-36d3-45fd-a2e0-14ee2856e5c1)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/e3c7034c-55cd-4ce9-b8cf-5ec1fdb23b20)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/82fcd7f0-b042-47de-a1f0-678446fd490e)
@@ -13,10 +13,10 @@
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/d7eb2407-a790-4dc9-b3e7-4c7c1aec45d7)
 ![Uploading image.png…]()
 
-個人中心![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/cc6e319a-4e77-4c9e-8cb1-07935966f591)
+个人中心![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/cc6e319a-4e77-4c9e-8cb1-07935966f591)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/36e2e83f-3877-495d-94f8-8a6aede8e61e)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/43371497-c561-4731-97f4-b62c55189d34)
-視頻播放![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/7b06dcde-d25c-400e-8deb-85e02191733a)
+视频播放![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/7b06dcde-d25c-400e-8deb-85e02191733a)
 ![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/4f35879d-804c-487d-b971-134cf0c0b658)
 
 后台![image](https://github.com/hh404358/MyVideoWebsite/assets/122706641/c7035f82-f6c4-4eb6-8681-8b364f7b18f9)
