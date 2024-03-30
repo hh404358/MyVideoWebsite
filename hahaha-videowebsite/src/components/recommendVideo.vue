@@ -1,0 +1,306 @@
+<!-- 右侧固定导航栏 -->
+<template>
+    <div class="box">
+        
+      <section class="rs4">
+        <h2 class="ui label" >推荐视频</h2>
+        <ul>
+          <li v-for="(item, index) in browseList" :key="'browseList' + index">
+            <img src = item.thunmbnailUrl/>
+            <a :href="'#/DetailVideo?aid=' + item.id" target="_blank">{{
+              item.videoTitle
+            }}</a>
+            —— {{ item.viewNum }} 次围观
+          </li>
+        </ul>
+      </section>
+      <!-- 右侧上滑小图片 -->
+      <div
+        v-if="this.$store.state.themeObj.user_start != 0"
+        :class="gotoTop ? 'toTop hidden' : 'toTop goTop hidden'"
+        @click="toTopfun"
+      >
+        <img
+          :src="
+            this.$store.state.themeObj.right_img
+              ? this.$store.state.themeObj.right_img
+              : 'static/img/scroll.png'
+          "
+          alt=""
+        />
+      </div>
+      <div
+        v-else
+        :class="gotoTop ? 'toTophui hidden' : 'toTophui goTophui hidden'"
+        @click="toTopfun"
+      >
+        <img
+          :src="
+            this.$store.state.themeObj.right_img
+              ? this.$store.state.themeObj.right_img
+              : 'static/img/scroll.png'
+          "
+          alt=""
+        />
+      </div>
+    </div>
+  </template>
+  
+  
+  <script>
+  import { getRecommendVideo} from "../api/video";
+  export default {
+    name: 'recommend',
+    data() {
+      //选项 / 数据
+      return {
+        fixDo: false,
+        loveme: false,
+        gotoTop: false, //返回顶部
+        going: false, //是否正在执行上滑动作
+        browseList: "", //热门视频 浏览量最多
+        artCommentList: "", //最新评论
+       
+      };
+    },
+    methods: {
+      //事件处理器
+      toTopfun: function (e) {
+        var that = this;
+        this.gotoTop = false;
+        this.going = true;
+        var timer = setInterval(function () {
+          //获取滚动条距离顶部高度
+          var osTop =
+            document.documentElement.scrollTop || document.body.scrollTop;
+          var ispeed = Math.floor(-osTop / 7);
+          document.documentElement.scrollTop = document.body.scrollTop =
+            osTop + ispeed;
+          //到达顶部，清除定时器
+          if (osTop == 0) {
+            that.going = false;
+            clearInterval(timer);
+            timer = null;
+          }
+        }, 30);
+      },
+      getVideoList() {
+        getRecommendVideo().then((response) => {
+          this.browseList = response;
+        });
+      },
+    
+    },
+    components: {
+      //定义组件
+    },
+  
+    created() {
+      //生命周期函数
+      var that = this;
+      
+      window.onscroll = function () {
+        var t = document.documentElement.scrollTop || document.body.scrollTop;
+        // console.log(t);
+        if (!that.going) {
+          if (t > 600) {
+            that.gotoTop = true;
+          } else {
+            that.gotoTop = false;
+          }
+        }
+        if (t > 1200) {
+          that.fixDo = true;
+        } else {
+          that.fixDo = false;
+        }
+      };
+     this.getVideoList();
+     
+  
+    },
+  };
+  </script>
+  
+  <style lang="less">
+  
+
+  .box {
+    position: relative;
+  }
+  .box section {
+    transition: all 0.2s linear;
+    position: relative;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  .box section:hover {
+    transform: translate(0, -2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /*************do you like me*******************/
+  .box .rs2 {
+    /*padding:10px 0 4px 0;*/
+    min-height: 100px;
+  }
+  .box .rs2.fixed {
+    position: fixed;
+    top: 40px;
+    width: 22%;
+  }
+  .box .rs2 p {
+    color: #df2050;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .box .rs2 div {
+    color: #df2050;
+    cursor: pointer;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    left: 0;
+    top: 30px;
+  }
+  .box .rs2 div i.heart {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin-left: -20px;
+    margin-top: -5px;
+    background: url(../../static/img/heart.png) no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    -webkit-transition: background-position 1s steps(28);
+    transition: background-position 1s steps(28);
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+    vertical-align: middle;
+  }
+  .box .rs2 div i.heart:hover {
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+  }
+  .box .rs2 div i.heart.active {
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    background-position: -2800px 0;
+  }
+  .box .rs2 div span {
+    margin-left: -30px;
+  }
+  /**********排队来说*************/
+  .box .rs3 .rs3-item {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .box .rs3 .rs3-item a {
+    display: block;
+    padding: 5px;
+    transition: all 0.3s ease-out;
+    border-bottom: 1px solid #ddd;
+    margin: 5px 0;
+  }
+  .box .rs3 .rs3-item a:hover {
+    background: rgba(230, 244, 250, 0.5);
+    border-radius: 5px;
+  }
+  .box .rs3 .rs3-photo {
+    float: left;
+  }
+  .box .rs3 .rs3-photo img {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+  }
+  .box .rs3 .rs3-inner {
+    margin-left: 40px;
+  }
+  .box .rs3 .rs3-inner .rs3-author {
+    font-weight: 700;
+  }
+  .box .rs3 .rs3-inner .rs3-text {
+    font-size: 12px;
+    text-align: justify;
+  }
+  .box .rs3 .rs3-item:last-child a {
+    border-bottom: none;
+  }
+  /************排队看这些***************/
+  .box .rs4 li {
+    padding: 8px 0;
+    text-align: justify;
+  }
+  .box .rs4 li a {
+    font-weight: 600;
+  }
+  .box .rs4 li a:hover {
+    color: #64609e;
+  }
+  
+  /*回到顶部*/
+  /*返回到顶部*/
+  .toTop {
+    position: fixed;
+    right: 40px;
+    top: -150px;
+    z-index: 99;
+    width: 70px;
+    height: 900px;
+    transition: all 0.5s 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .goTop {
+    top: -950px;
+  }
+  .toTop img,
+  .toTophui img {
+    width: 100%;
+    height: auto;
+  }
+  .toTophui {
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    z-index: 99;
+    width: 120px;
+    height: 120px;
+    transition: all 0.5s 0.3s ease-in-out;
+    cursor: pointer;
+    animation: toflow 2s ease-in-out infinite;
+  }
+  @keyframes toflow {
+    0% {
+      /*top:400px;*/
+      transform: scale(0.95) translate(0, 10px);
+    }
+    50% {
+      /*top:410px;*/
+      transform: scale(1) translate(0, 0px);
+    }
+    100% {
+      /*top:400px;*/
+      transform: scale(0.95) translate(0, 10px);
+    }
+  }
+  .goTophui {
+    bottom: 120vh;
+  }
+  </style>
+  
